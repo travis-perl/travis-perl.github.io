@@ -2,7 +2,7 @@ helper_dir="$(mktemp -d -t travis-perl-helpers-XXXXXX)";
 git init "$helper_dir";
 (
   cd "$helper_dir";
-  git remote add origin "${TRAVIS_PERL_REPO:-git://github.com/travis-perl/helpers}";
+  git remote add origin "${TRAVIS_PERL_REPO:-https://github.com/travis-perl/helpers.git}";
   branch="${TRAVIS_PERL_BRANCH:-master}";
   [[ "$branch" == pull-request/* ]] && refspec="refs/pull/${branch:13}/head" || refspec="refs/heads/$branch";
   git fetch origin --depth=1 "$refspec:refs/remotes/origin/$branch";
